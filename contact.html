@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontak RM Payakumbuh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #FFFDF5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background: linear-gradient(135deg, #B3362B 0%, #8B2A22 100%);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-text {
+      color: #FFF;
+      font-size: 24px;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #FFF;
+      font-weight: 600;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #FFDAB9;
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #FFDAB9;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .contact-section {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .contact-section h1 {
+      color: #2F4F1C;
+      margin-bottom: 25px;
+      font-size: 2.4em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-section h1::after {
+      content: "";
+      width: 60%;
+      height: 3px;
+      background-color: #A23E2D;
+      position: absolute;
+      bottom: -8px;
+      left: 20%;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .contact-card {
+      background-color: #FAF6E9;
+      border-radius: 16px;
+      padding: 24px;
+      width: 180px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px);
+      background-color: #FFE178;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .contact-card img {
+      width: 48px;
+      margin-bottom: 12px;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .contact-card a {
+      color: #333;
+      font-weight: 600;
+      word-wrap: break-word;
+    }
+
+    .map-section {
+      background-color: #FFF3C9;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .map-section h2 {
+      color: #2F4F1C;
+      margin-bottom: 18px;
+      font-size: 2em;
+    }
+
+    .map-section p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.05em;
+      color: #5A3B1D;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #FAF6E9;
+      color: #666;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .logo-text {
+        font-size: 20px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .contact-card {
+        width: 140px;
+        padding: 18px;
+      }
+
+      .contact-card img {
+        width: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        padding: 12px;
+        text-align: center;
+      }
+
+      .logo-container {
+        justify-content: center;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .logo-container img {
+        width: 64px;
+        height: 64px;
+      }
+
+      .logo-text {
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .nav-links a {
+        font-size: 16px;
+        padding: 4px 0;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .contact-card {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .contact-card img {
+        width: 36px;
+      }
+
+      .map-section p {
+        font-size: 0.95em;
+        padding: 0 10px;
+      }
+
+      .footer {
+        font-size: 13px;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="logo2.png" alt="Logo RM Payakumbuh" />
+      <div class="logo-text">RUMAH MAKAN PAYAKUMBUH</div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About us</a>
+      <a href="contact.html">Contact us</a>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <h1>Hubungi Kami</h1>
+    <div class="contact-links">
+      <div class="contact-card">
+        <img src="wa.jpg" alt="WhatsApp" />
+        <a href="https://wa.me/6281372503435" target="_blank">0813‑7250‑3435</a>
+      </div>
+
+      <div class="contact-card">
+        <img src="ig.jpg" alt="Instagram" />
+        <a href="https://instagram.com/rm.payakumbuh" target="_blank">@rm.payakumbuh</a>
+      </div>
+
+      <div class="contact-card">
+        <img src="images.png" alt="GoFood" />
+        <a href="https://gofood.link" target="_blank">GoFood</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <h2>Lokasi Rumah Makan Kami</h2>
+    <p>
+      Kunjungi langsung ke alamat kami di Batam: <strong>Batu Ampar, Melchen Perumahan Tering Raya Blok A1 No. 05</strong>. 
+      Buka setiap hari pukul <strong>09.00 - 22.00 WIB</strong>.
+    </p>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0384707126836!2d104.028245!3d1.127187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d98c957cf62127%3A0x3a58fe3724560c5f!2sMelchen%20Perumahan%20Tering%20Raya%20Blok%20A1!5e0!3m2!1sid!2sid!4v1718930464000!5m2!1sid!2sid" 
+      width="100%" 
+      height="350" 
+      style="border:0; border-radius:16px; box-shadow: 0 6px 16px rgba(0,0,0,0.1);" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 RM Payakumbuh. Semua Hak Dilindungi.
+  </footer>
+
+</body>
+</html>

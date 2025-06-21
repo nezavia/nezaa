@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu Rumah Makan</title>
+  <!-- Import font Poppins saja -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #FAF6E9;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #B3362B 0%, #8B2A22 100%);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-container img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 20px;
+      color: #FFF;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #FFF;
+      font-weight: 600;
+      font-size: 16px;
+      position: relative;
+      padding: 6px 0;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #FFDAB9;
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:active {
+      color: #FFDAB9;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:active::after {
+      width: 100%;
+    }
+
+    .content {
+      padding: 40px;
+    }
+
+    .menu-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .menu-section {
+      width: 48%;
+    }
+
+    .menu-section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .menu-item {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .menu-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      padding: 10px;
+    }
+
+    .menu-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 25px;
+    }
+
+    .menu-text .name {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: 1px;
+    }
+
+    .menu-text .description {
+      font-size: 14px;
+      font-style: italic;
+      opacity: 0.9;
+      margin-bottom: 6px;
+    }
+
+    .menu-text .price {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .menu-overlay .rating {
+      position: absolute;
+      bottom: 8px;
+      right: 22px;
+      font-size: 14px;
+      color: gold;
+    }
+
+    /* RESPONSIVE UNTUK HP */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .menu-container {
+        flex-direction: column;
+      }
+
+      .menu-section {
+        width: 100%;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-item {
+        height: 180px;
+      }
+
+      .menu-text {
+        padding-top: 15px;
+      }
+
+      .menu-text .name {
+        font-size: 20px;
+      }
+
+      .menu-text .price {
+        font-size: 14px;
+      }
+
+      .menu-text .description {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+</body>
+</html>
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="logo2.png" alt="Logo Warung Makan Payakumbuh" />
+      <div class="logo-text">RUMAH MAKAN PAYAKUMBUH</div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <div class="menu-container">
+
+      <!-- Bagian Makanan -->
+      <div class="menu-section makanan">
+        <h2>MAKANAN</h2>
+        <div class="menu-grid">
+
+          <!-- Makanan 1 -->
+          <div class="menu-item">
+            <img src="rendang.jpg" alt="Rendang" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">RENDANG</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 18.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+          <!-- Makanan 2 -->
+             <div class="menu-item">
+            <img src="dendeng2.jpg" alt="Dendeng" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">DENDENG</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 18.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+          <!-- Makanan 3 -->
+          <div class="menu-item">
+            <img src="kikil.jpg" alt="Dendeng" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">kikil</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 18.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="ayam gulai.jpg" alt="Ayam Gulai" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">AYAM GULAI</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 18.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="cincang.jpg" alt="Cincang" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">CINCANG</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 18.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="ikan bakar.jpg" alt="Ikan Bakar" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">IKAN BAKAR</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 17.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="ikan goreng.jpg" alt="ikan goreng" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">IKAN GORENG</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 17.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="ampla.jpg" alt="Ampla" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">AMPLA</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 17.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <img src="ikan bakar.jpg" alt="Amplang" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">IKAN BAKAR</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 17.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <img src="prekedel.jpg" alt="Amplang" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">PREKEDEL</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 5.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+             <div class="menu-item">
+            <img src="babat.jpg" alt="Amplang" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">BABAT</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 18.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+             <div class="menu-item">
+            <img src="tongkol gulai.jpg" alt="Amplang" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">TONGKOL GULAI</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 18.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+            <div class="menu-item">
+            <img src="ayam oreng.jpg" alt="Amplang" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">AYAM GORENG</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 18.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+
+            <div class="menu-item">
+            <img src="ayam bakar.jpg" alt="Amplang" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">AYAM BAKAR</p>
+                <p class="description">Nasi + kuah + sayur + sambal + kerupuk</p>
+                <p class="price">Rp. 18.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bagian Minuman -->
+      <div class="menu-section minuman">
+        <h2>MINUMAN</h2>
+        <div class="menu-grid">
+
+          <!-- Contoh Minuman -->
+          <div class="menu-item">
+            <img src="teh obenng.jpg" alt="Es Teh" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">ES TEH OBENG</p>
+                <p class="description">Segar dan dingin</p>
+                <p class="price">Rp. 5.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <img src="teh o.jpg" alt="Es Jeruk" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">TEH O</p>
+                <p class="description">Segar dan manis</p>
+                <p class="price">Rp. 5.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+            <div class="menu-item">
+            <img src="nutrisari.jpg" alt="Es Jeruk" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">NUTRISARI</p>
+                <p class="description">Segar dan manis</p>
+                <p class="price">Rp. 6.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+            <div class="menu-item">
+            <img src="kukubima susu.jpg" alt="Es Jeruk" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">KBS</p>
+                <p class="description">Segar dan manis</p>
+                <p class="price">Rp. 7.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+            <div class="menu-item">
+            <img src="extrajoss susus.jpg" alt="Es Jeruk" />
+            <div class="menu-overlay">
+              <div class="menu-text">
+                <p class="name">EXTRAJOSS SUSU</p>
+                <p class="description">Segar dan manis</p>
+                <p class="price">Rp. 7.000</p>
+              </div>
+              <p class="rating">★ ★ ★ ★ ★</p>
+            </div>
+          </div>
+
+          <!-- Tambahkan minuman lain sesuai kebutuhan -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
