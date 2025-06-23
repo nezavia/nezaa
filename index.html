@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Warung Makan Lezat</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #FAF6E9;
+      color: #333;
+      font-size: 15px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #B3362B 0%, #8B2A22 100%);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-container img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-text {
+      font-weight: 600;
+      font-size: 20px;
+      color: #FFF;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #FFF;
+      font-weight: 600;
+      font-size: 16px;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #FFDAB9;
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:active {
+      color: #FFDAB9;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:active::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 550px;
+      overflow: hidden;
+    }
+
+    .slides {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slides img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      animation: fadeSlide 18s infinite;
+    }
+
+    .slides img:nth-child(1) { animation-delay: 0s; }
+    .slides img:nth-child(2) { animation-delay: 6s; }
+    .slides img:nth-child(3) { animation-delay: 12s; }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      30% { opacity: 1; }
+      35% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .info-map {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .info {
+      flex: 1 1 50%;
+    }
+
+    .info h3 {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    .best-seller {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1 1 45%;
+    }
+
+    .best-seller-title {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #8B2A22;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .menu-card {
+      background-color: #fff7ec;
+      border: 2px solid #e4c9b0;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-card img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .menu-card h4 {
+      margin: 0.5rem 0;
+      color: #8B2A22;
+      font-size: 18px;
+    }
+
+    .menu-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .catering-section {
+      background-color: #FFF1C1;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .catering-section h2 {
+      color: #8B2A22;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .catering-section p {
+      color: #5C3B28;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .btn-catering {
+      background-color: #C0392B;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-catering:hover {
+      background-color: #A93226;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+
+      .info-map {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .info, .best-seller {
+        flex: 1 1 100%;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #8B2A22;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 999;
+      }
+
+      .nav-links a {
+        padding: 8px 10px;
+        font-size: 14px;
+        color: #fff;
+        border-bottom: 1px solid #fff3;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-container img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .logo-text {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-container">
+      <img src="logo2.png" alt="Logo Warung Makan Payakumbuh" />
+      <div class="logo-text">RUMAH MAKAN PAYAKUMBUH</div>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <nav class="nav-links" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- SLIDER -->
+  <div class="hero">
+    <div class="slider">
+      <div class="slides">
+        <img src="rm.jpg" alt="Makanan Padang 1" />
+        <img src="IMG_0316.jpg" alt="Masakan Padang 2" />
+        <img src="IMG_0314.jpg" alt="Suasana Rumah Makan" />
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO & BEST SELLER -->
+  <div class="info-map">
+    <div class="info">
+      <h3>Informasi Warung Makan</h3>
+      <section id="tentang-kami" style="background-color:#FAF6E9; padding: 2rem;">
+        <h2>Tentang rumah makan payakumbuh</h2>
+        <p>
+          Selamat datang di <strong>rumah makan payakumbuh</strong>, rumah makan khas Minang yang menghadirkan kelezatan kuliner Sumatera Barat ke tengah-tengah kota Batam.
+        </p>
+        <p style="margin-left: 1rem;">
+          📍 <strong>Melchen, Perumahan Tering Raya Blok A1 No. 05, Batu Ampar, Batam</strong><br>
+          🕘 <strong>Buka setiap hari pukul 09.00 – 22.00 WIB</strong>
+        </p>
+        <p>
+          Warung ini dirancang untuk menghadirkan nuansa hangat dan kekeluargaan layaknya rumah makan di kampung halaman.
+        </p>
+      </section>
+    </div>
+
+    <div class="best-seller">
+      <h3 class="best-seller-title">Best Seller</h3>
+      <div class="menu-card">
+        <img src="rendang.jpg" alt="Rendang">
+        <h4>Rendang</h4>
+        <p>Daging sapi empuk dengan bumbu rempah khas Minang yang meresap sempurna.</p>
+      </div>
+      <div class="menu-card">
+        <img src="dendeng2.jpg" alt="Dendeng">
+        <h4>dendeng</h4>
+        <p>daging khas Minang dengan rasa gurih lembut dan sambal spesial.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYANAN CATERING -->
+  <section class="catering-section">
+    <h2>Layanan Catering</h2>
+    <p>
+      Kami melayani berbagai acara: <strong>pesta, arisan, pernikahan, hingga rapat kantor</strong>.<br>
+      Menu bisa disesuaikan sesuai kebutuhan Anda, dijamin lezat dan tepat waktu!
+    </p>
+    <a href="#kontak" class="btn-catering">Pesan Catering Sekarang</a>
+  </section>
+
+  <!-- Script Hamburger -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
+  </script>
+
+</body>
+</html>
